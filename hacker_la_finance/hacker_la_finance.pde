@@ -18,7 +18,7 @@ String contenuTweet = ""; //variable dans laquelle on va venir stocker le texte 
 
 ArrayList<String[]> listeDeMots = new ArrayList<String[]>(); //on crée un tableau qui contiendra les mots présents pour chaque tweet
 String [] listeMeliorative = {"de", "les", "une", "vente", "à"};
-String [] listeDepreciative = {", pourri, relou"};
+String [] listeDepreciative = {"nul", "pourri", "relou"};
 
 PrintWriter output; 
 int valeurContenuTweet =0;
@@ -27,6 +27,7 @@ int valeurContenuTweet =0;
 
 void setup() {
   size(800, 800, P2D);
+  //fullScreen(P2D);
   //background(0);
 
   output =createWriter("test05.txt"); //Create a new file in the sketch directory
@@ -43,14 +44,16 @@ void setup() {
 }
 
 void draw() {
-  background(255,0,210);
+  background(240);
   traitementContenuTweet();
-  translate(0,height/2);
+  pushMatrix();
+  translate(0, height-20);
   drawPoint();
+  popMatrix();
 }
 
 int timer=0;
-int timerMax=60*4;
+int timerMax=60/20;
 int xPoint=0;
 
 void traitementContenuTweet() {
@@ -68,6 +71,9 @@ void traitementContenuTweet() {
   if (timer>timerMax) {
     makeAction();
     xPoint+=10;
+    if (xPoint > width+50) {
+      xPoint =0;
+    }
     timer=0;
   }
   timer++;
