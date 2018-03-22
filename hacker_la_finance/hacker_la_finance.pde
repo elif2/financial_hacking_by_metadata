@@ -23,6 +23,8 @@ String [] listeDepreciative = {", pourri, relou"};
 PrintWriter output; 
 int valeurContenuTweet =0;
 
+
+
 void setup() {
   size(800, 800, P2D);
   //background(0);
@@ -40,9 +42,8 @@ void setup() {
   tweets = search("#iphone -filter:retweets"); //on crée un filtre pour éviter de faire apparaître les RT
 }
 
-void draw() {
-  background(0);
-  traitementContenuTweet();
+void draw(){
+   traitementContenuTweet(); 
 }
 
 int timer=0;
