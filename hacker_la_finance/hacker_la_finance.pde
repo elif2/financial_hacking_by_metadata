@@ -50,14 +50,14 @@ void traitementContenuTweet() {
   for (int i =0; i<tweets.size(); i++) { 
     contenuTweet = tweets.get(i).getText();
     println(contenuTweet);
-    stockerTweetDansTxt(); //on appelle la fonction qui va venir extraire les String vers un fichier txt -> utilisé pour le text mining
+    //stockerTweetDansTxt(); //on appelle la fonction qui va venir extraire les String vers un fichier txt -> utilisé pour le text mining
     String[] list = split(contenuTweet, ' '); //breaks a String into pieces using a character or string as the delimiter. A String[] array is returned that contains each of the pieces. 
     listeDeMots.add(list); //on ajoute cette liste list à un tableau listeDeMots; pour pouvoir y accéder en dehors de la boucle pour comparer
     for (int j  = 0; j < list.length; j++)
       println(j+ " > "+list[j]); // affiche la liste de mots
   }
-  output.close(); // Finishes the file
-  exit(); // Stops the program
+  //output.close(); // Finishes the file
+  //exit(); // Stops the program
 /*
   for (int i=0; i<listeDeMots.size(); i++) {//parcourt la ligne, et ressort un tableau de string [] qui contient tous les mots d'un tweet
     String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
