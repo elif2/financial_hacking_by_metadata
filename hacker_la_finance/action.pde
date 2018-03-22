@@ -26,7 +26,8 @@ void makeAction() {
     valLang=1;
   }
   //on imprime la valeur du coeff qui est calculé en multipliant valeur de la langue avec le nb de fav avec le nb de RT puis qui est mappé pour réduire l'échelle youhou
-  println("VALEUR DU COEFF : " +map(valLang*(t.getFavoriteCount()+1)*(t.getRetweetCount()+1), 1, 50, 0, 100));
+  float coeff = map(valLang*(t.getFavoriteCount()+1)*(t.getRetweetCount()+1), 1, 50, 0, 100);
+  
 
 
   String[] list = split(text, ' '); //breaks a String into pieces using a character or string as the delimiter. A String[] array is returned that contains each of the pieces. 
@@ -40,9 +41,14 @@ void makeAction() {
       }
     }
   }
-
-  println("val  > "+val);
-
+  
+  float valcoeff = val*coeff;
+  
+  println("val : " + val);
+  println("coeff : " +coeff);
+  println("valxcoeff  > "+valcoeff);
+  
+  tabPoints.add(new Point(xPoint,valcoeff));
 
   index++;
   if (index>tweets.size()-1)index=0;

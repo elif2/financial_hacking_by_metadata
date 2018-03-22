@@ -39,15 +39,19 @@ void setup() {
   tweet.setOAuthAccessTokenSecret("S2y8PIVlKIWk2CAFQwseMowQfxNag4rWGXoJk3MaZCoDS");
 
   //on cherche le mot clé "#trump"
-  tweets = search("#iphone -filter:retweets"); //on crée un filtre pour éviter de faire apparaître les RT
+  tweets = search("#chien -filter:retweets"); //on crée un filtre pour éviter de faire apparaître les RT
 }
 
-void draw(){
-   traitementContenuTweet(); 
+void draw() {
+  background(255,0,210);
+  traitementContenuTweet();
+  translate(0,height/2);
+  drawPoint();
 }
 
 int timer=0;
 int timerMax=60*4;
+int xPoint=0;
 
 void traitementContenuTweet() {
   /*
@@ -63,6 +67,7 @@ void traitementContenuTweet() {
 
   if (timer>timerMax) {
     makeAction();
+    xPoint+=10;
     timer=0;
   }
   timer++;
@@ -75,13 +80,13 @@ void traitementContenuTweet() {
    String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
    for (int j=0; j<mots.length; j++) { //parcourt chaque case du tableau de string []
    //variable temporaire qui s'appelle mots et qui stocke notre tableau de String [] (qui correspont à un tweet)
-    for (String s : listeMeliorative) { //itère sur la liste 
-      if (s.compareTo((String) mots[j]) == 0) {
-       //valeurContenuTweet++;
-       println("HOURA");
-      }
-     }
-    }
-  }
+   for (String s : listeMeliorative) { //itère sur la liste 
+   if (s.compareTo((String) mots[j]) == 0) {
+   //valeurContenuTweet++;
+   println("HOURA");
+   }
+   }
+   }
+   }
    */
 }
