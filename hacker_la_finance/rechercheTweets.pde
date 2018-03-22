@@ -4,7 +4,7 @@ ArrayList<Status> tweets; // on crée un tableau des tweets
 ArrayList <Status> search (String keyword) { 
   Query query = new Query(keyword); // construction d'une requête
   //paramètres 
-  query.setCount(200); //on lui demande 20 résultats
+  query.setCount(20); //on lui demande 20 résultats
   query.setLang("fr"); //langue en fr
 
   /*

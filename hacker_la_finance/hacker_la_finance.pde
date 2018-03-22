@@ -17,7 +17,7 @@ SimpleTweet tweet;
 String contenuTweet = ""; //variable dans laquelle on va venir stocker le texte de chaque tweet
 
 ArrayList<String[]> listeDeMots = new ArrayList<String[]>(); //on crée un tableau qui contiendra les mots présents pour chaque tweet
-String [] listeMeliorative = {"de", "les", "une"};
+String [] listeMeliorative = {"de", "les", "une", "vente", "à"};
 String [] listeDepreciative = {", pourri, relou"};
 
 PrintWriter output; 
@@ -41,35 +41,46 @@ void setup() {
 }
 
 void draw() {
-
   background(0);
   traitementContenuTweet();
 }
 
+int timer=0;
+int timerMax=60*4;
+
 void traitementContenuTweet() {
+  /*
   for (int i =0; i<tweets.size(); i++) { 
-    contenuTweet = tweets.get(i).getText();
-    println(contenuTweet);
-    //stockerTweetDansTxt(); //on appelle la fonction qui va venir extraire les String vers un fichier txt -> utilisé pour le text mining
-    String[] list = split(contenuTweet, ' '); //breaks a String into pieces using a character or string as the delimiter. A String[] array is returned that contains each of the pieces. 
-    listeDeMots.add(list); //on ajoute cette liste list à un tableau listeDeMots; pour pouvoir y accéder en dehors de la boucle pour comparer
-    for (int j  = 0; j < list.length; j++)
-      println(j+ " > "+list[j]); // affiche la liste de mots
+   contenuTweet = tweets.get(i).getText();
+   println(contenuTweet);
+   //stockerTweetDansTxt(); //on appelle la fonction qui va venir extraire les String vers un fichier txt -> utilisé pour le text mining
+   String[] list = split(contenuTweet, ' '); //breaks a String into pieces using a character or string as the delimiter. A String[] array is returned that contains each of the pieces. 
+   listeDeMots.add(list); //on ajoute cette liste list à un tableau listeDeMots; pour pouvoir y accéder en dehors de la boucle pour comparer
+   for (int j  = 0; j < list.length; j++)
+   println(j+ " > "+list[j]); // affiche la liste de mots
+   }*/
+
+  if (timer>timerMax) {
+    makeAction();
+    timer=0;
   }
+  timer++;
+
+
   //output.close(); // Finishes the file
   //exit(); // Stops the program
-/*
+  /*
   for (int i=0; i<listeDeMots.size(); i++) {//parcourt la ligne, et ressort un tableau de string [] qui contient tous les mots d'un tweet
-    String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
-    for (int j=0; j<mots.length; j++) { //parcourt chaque case du tableau de string []
-      //variable temporaire qui s'appelle mots et qui stocke notre tableau de String [] (qui correspont à un tweet)
-      for (String s : listeMeliorative) { //itère sur la liste 
-        if (s.compareTo((String) mots[j]) == 0) {
-          //valeurContenuTweet++;
-          println("HOURA");
-        }
+   String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
+   for (int j=0; j<mots.length; j++) { //parcourt chaque case du tableau de string []
+   //variable temporaire qui s'appelle mots et qui stocke notre tableau de String [] (qui correspont à un tweet)
+    for (String s : listeMeliorative) { //itère sur la liste 
+      if (s.compareTo((String) mots[j]) == 0) {
+       //valeurContenuTweet++;
+       println("HOURA");
       }
+     }
     }
   }
-  */
+   */
 }
