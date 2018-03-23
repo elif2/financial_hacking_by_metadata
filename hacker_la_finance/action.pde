@@ -9,6 +9,7 @@ void makeAction() {
   Status t = tweets.get(index);
   String text = t.getText();
   println(text);
+  println(t.getUser().getFollowersCount());
 
   //pour attribuer une valeur numéraire à une langue
   if (t.getUser().getLang().equals("en")||t.getUser().getLang().equals("en-gb")) {
@@ -26,7 +27,7 @@ void makeAction() {
     valLang=1;
   }
   //on imprime la valeur du coeff qui est calculé en multipliant valeur de la langue avec le nb de fav avec le nb de RT puis qui est mappé pour réduire l'échelle youhou
-  float coeff = map(valLang*(t.getFavoriteCount()+1)*(t.getRetweetCount()+1), 1, 50, 0, 100);
+  float coeff = map(valLang*(t.getFavoriteCount()+1)*(t.getRetweetCount()+(1*t.getUser().getFollowersCount()/1000 +1)), 1, 50, 0, 100);
 
   String[] list = split(text, ' '); //breaks a String into pieces using a character or string as the delimiter. A String[] array is returned that contains each of the pieces. 
   listeDeMots.add(list); //on ajoute cette liste list à un tableau listeDeMots; pour pouvoir y accéder en dehors de la boucle pour comparer

@@ -43,5 +43,6 @@ class Point {
     rectMode(CENTER);
     fill(59, 98, 170);
     rect(x, -y, 1, 1);
+    
   }
 }

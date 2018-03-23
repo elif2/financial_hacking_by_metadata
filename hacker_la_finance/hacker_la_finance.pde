@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 /*
  1) se créer un compte twitter
  2) aller sur apps.twitter.com
@@ -14,6 +16,8 @@ import twitter4j.*;
 //on créer l'objet
 SimpleTweet tweet;
 
+SoundFile file;
+
 String contenuTweet = ""; //variable dans laquelle on va venir stocker le texte de chaque tweet
 
 ArrayList<String[]> listeDeMots = new ArrayList<String[]>(); //on crée un tableau qui contiendra les mots présents pour chaque tweet
@@ -26,8 +30,10 @@ int valeurContenuTweet =0;
 
 
 void setup() {
-  size(800, 800, P2D);
-  //fullScreen(P2D);
+  //size(800, 800, P2D);
+  file = new SoundFile(this, "caisse.mp3");
+  
+  fullScreen(P2D);
   //background(0);
 
   output =createWriter("test05.txt"); //Create a new file in the sketch directory
@@ -53,7 +59,7 @@ void draw() {
 }
 
 int timer=0;
-int timerMax=60/20;
+int timerMax=60;
 int xPoint=0;
 
 void traitementContenuTweet() {
@@ -69,8 +75,10 @@ void traitementContenuTweet() {
    }*/
 
   if (timer>timerMax) {
+    file.play();
+    file.amp(0.3);
     makeAction();
-    xPoint+=10;
+    xPoint+=50;
     if (xPoint > width+50) {
       xPoint =0;
     }
