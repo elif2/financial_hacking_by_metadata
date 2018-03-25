@@ -32,7 +32,7 @@ int valeurContenuTweet =0;
 void setup() {
   //size(800, 800, P2D);
   file = new SoundFile(this, "caisse.mp3");
-  
+
   fullScreen(P2D);
   //background(0);
 
@@ -46,7 +46,7 @@ void setup() {
   tweet.setOAuthAccessTokenSecret("S2y8PIVlKIWk2CAFQwseMowQfxNag4rWGXoJk3MaZCoDS");
 
   //on cherche le mot clé "#trump"
-  tweets = search("#chien -filter:retweets"); //on crée un filtre pour éviter de faire apparaître les RT
+  tweets = search("#snapchat -filter:retweets"); //on crée un filtre pour éviter de faire apparaître les RT
 }
 
 void draw() {
@@ -59,7 +59,7 @@ void draw() {
 }
 
 int timer=0;
-int timerMax=60;
+int timerMax=60*4;
 int xPoint=0;
 
 void traitementContenuTweet() {
@@ -89,18 +89,17 @@ void traitementContenuTweet() {
 
   //output.close(); // Finishes the file
   //exit(); // Stops the program
-  /*
+/*
   for (int i=0; i<listeDeMots.size(); i++) {//parcourt la ligne, et ressort un tableau de string [] qui contient tous les mots d'un tweet
-   String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
-   for (int j=0; j<mots.length; j++) { //parcourt chaque case du tableau de string []
-   //variable temporaire qui s'appelle mots et qui stocke notre tableau de String [] (qui correspont à un tweet)
-   for (String s : listeMeliorative) { //itère sur la liste 
-   if (s.compareTo((String) mots[j]) == 0) {
-   //valeurContenuTweet++;
-   println("HOURA");
-   }
-   }
-   }
-   }
-   */
+    String[] mots = (String[]) listeDeMots.get(i); // ligne contenant un tweet,  savoir une liste de mots bien segemntée dans un tableau
+    for (int j=0; j<mots.length; j++) { //parcourt chaque case du tableau de string []
+      //variable temporaire qui s'appelle mots et qui stocke notre tableau de String [] (qui correspont à un tweet)
+      for (String s : listeMeliorative) { //itère sur la liste 
+        if (s.compareTo((String) mots[j]) == 0) {
+          //valeurContenuTweet++;
+          println("HOURA");
+        }
+      }
+    }
+  }*/
 }
